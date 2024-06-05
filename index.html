@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>store nevertheless</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+        * {
+            font-family: "Gowun Batang", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
+            max-width: 100%;
+            padding: 0;
+        }
+
+
+        .st_hd_body {
+            display: flex;
+            width: 1200px;
+            max-width: 100%;
+        }
+
+        .st_hd .nav-link {
+            color: #333333;
+            font-size: 14px;
+        }
+
+        .navbar-expand-lg {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            margin: 0 16px;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        .main {
+            color: #333333;
+            background-image: url('../store/images/main_bg.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container .main .p-5 {
+            height: 50vh;
+            max-width: 100vh;
+            position: relative;
+        }
+
+        .container .main .p-5 .card-body {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .container .main .p-5 .card-body .card-title {
+            color: #ffffff;
+            font-size: 40px;
+        }
+
+        .container .main .p-5 .card-body .card-text {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .container .main .p-5 .card-body .btn-primary {
+            color: #0d6efd;
+            background-color: #fff;
+            border-color: #0d6efd;
+            margin-top: 40px;
+            width: 120px;
+            height: 48px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .send {
+            width: 100%;
+            max-width: 600px;
+            margin: 80px auto;
+        }
+
+        .send-btn {
+            width: 100%;
+            max-width: 100%;
+            margin: 8px auto;
+            height: 40px;
+        }
+
+        .col-sm-2 {
+            flex: 0 0 auto;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .col-sm-10 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        input::placeholder {
+            font-size: 12px;
+            color: #dbdbdb;
+        }
+
+        .field {
+            display: flex;
+            width: 100%;
+            max-width: 100%;
+            flex-direction: column;
+        }
+
+        .form-check {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .form-check:nth-child(1) {
+            margin-left: 16px;
+        }
+
+        .form-title {
+            margin-bottom: 4px;
+            font-size: 14px;
+            padding-top: 12px;
+        }
+
+        .form-control.email {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            /* 필요에 따라 조정 */
+            box-sizing: border-box;
+            padding-bottom: 10px;
+        }
+
+        .form-check:nth-child(3) {
+            margin-top: 24px;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+
+        .notice {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            flex-direction: column;
+            font-size: 12px;
+            margin: 0 auto;
+            border-top: 1px solid #dbdbdb;
+            padding-top: 16px;
+        }
+
+        .notice p {
+            margin: 8px;
+        }
+
+        .notice .notice-title {
+            font-size: 14px;
+            font-weight: 500
+        }
+
+
+        @media (max-width: 768px) {
+
+            .container .main .p-5 .card-body .btn-primary {
+                color: #0d6efd;
+                background-color: #fff;
+                border-color: #0d6efd;
+                margin-top: 40px;
+                width: 100%;
+                height: 40px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container .main .p-5 .card-body {
+                left: 50%;
+                transform: translate(-50%, -50%) !important;
+                text-align: center;
+                width: calc(100% - 32px);
+                max-width: 100%;
+            }
+
+            .container .main .p-5 .card-body .card-title {
+                color: #ffffff;
+                font-size: 32px;
+                margin-bottom: 24px;
+            }
+
+            .container .main .p-5 .card-body .card-text {
+                color: #ffffff;
+                font-size: 14px;
+                margin-bottom: 2px;
+                width: 75%;
+                margin: 0 auto;
+                line-height: 180%;
+            }
+
+            .send {
+                width: calc(100% - 64px);
+                max-width: 100%;
+                margin: 40px auto;
+            }
+
+            .send-btn {
+                width: 100%;
+                max-width: 100%;
+                margin: 8px auto;
+                height: 40px;
+            }
+
+            .notice {
+                display: flex;
+                width: calc(100% - 32px);
+                max-width: 100%;
+                flex-direction: column;
+                margin: 0 auto;
+                font-size: 12px;
+                padding: 16px 0;
+            }
+
+            .form-check:nth-child(1) {
+                margin-left: 0;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="st_hd">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">nevertheless</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">홈</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">신청하기</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">안내사항</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="main">
+            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                <div class="card-body">
+                    <h5 class="card-title">이야기를 들어드립니다.</h5>
+                    <p class="card-text">24시간 연중무휴 오픈, 당신의 이야기를 무엇이든 들어드립니다.</p>
+                    <p class="card-text">이야기에 어울리는 술, 책과 함께 나만을 위한 시간을 보내보세요.</p>
+                    <a href="#" class="btn btn-primary">신청하기</a>
+                </div>
+            </div>
+        </div>
+        <div class="send">
+            <form>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">이름or닉네임</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputnamel3">
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="form-title">처방 방법</p>
+                    <fieldset class="row mb-3">
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                    value="option1" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    책 + 술처방
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                    value="option2">
+                                <label class="form-check-label" for="gridRadios2">
+                                    책처방
+                                </label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">이메일</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control email" id="inputEmail3"
+                            placeholder="답변 받으실 이메일 주소를 적어주세요.">
+                    </div>
+                </div>
+                <div class="form-floating">
+                    <p class="form-title">이야기를 들려주세요.</p>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary send-btn">이야기 보내기</button>
+            </form>
+        </div>
+        <div class="notice">
+            <p class="notice-title">유의사항</p>
+            <div class="notice-cont">
+                <p>- 모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 나는 헌법을 준수하고 국가를 보위하며 조국의 평화적 통일과 국민의 자유와 복리의 증진 및 민족문화의 창달에 노력하여
+                    대통령으로서의 직책을 성실히 수행할 것을 국민 앞에 엄숙히 선서합니다.</p>
+                <p>- 국회는 정부의 동의없이 정부가 제출한 지출예산 각항의 금액을 증가하거나 새 비목을 설치할 수 없다. 모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한 재판을 받을 권리를
+                    가진다.</p>
+                <p>- 감사원은 원장을 포함한 5인 이상 11인 이하의 감사위원으로 구성한다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다.</p>
+                <p>- 대통령의 임기연장 또는 중임변경을 위한 헌법개정은 그 헌법개정 제안 당시의 대통령에 대하여는 효력이 없다. 국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로
+                    폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다.</p>
+
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                    사이트 사용 유의사항에 동의합니다
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
